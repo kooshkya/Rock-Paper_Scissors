@@ -1,35 +1,40 @@
 // Troughout the code, rocks will be represented by the number 1, paper by the number 2, and scissors by the number 3.
 
-let playerName = prompt("Welcome to RPS! Please enter your name:");
-if (playerName == "Computer") {
-    playerName = "Player";
-}
-
-let playerScore = 0, computerScore = 0, roundNumber = 1;
+let playerName;
+let playerScore, computerScore, roundNumber;
 const winScore = 3;
+play();
 
-while (playerScore < winScore && computerScore < winScore) {
-    let playerMove = getPlayerMove();
-    if (playerMove === -1) {
-        alert("Invalid input, try again.");
-        continue;
+function play() {
+    playerScore = 0, computerScore = 0;
+    roundNumber = 1;
+    playerName = prompt("Welcome to RPS! Please enter your name:");
+    if (playerName == "Computer") {
+        playerName = "Player";
     }
-
-    let computerMove = generateRandomMove();
-    let winner = determineWinner(playerMove, computerMove);
-
-    let roundMessage = `${playerName}'s Move: ${convertMoveToString(playerMove)}\n`
-    roundMessage += `Computer's Move: ${convertMoveToString(computerMove)}\n`
-    roundMessage += (winner !== "Draw") ? `Winner: ${winner}` : "Draw!";
-    alert(roundMessage);
-
-    roundNumber++;
-    playerScore += (winner === playerName) ? 1 : 0;
-    computerScore += (winner === "Computer") ? 1 : 0;
+    while (playerScore < winScore && computerScore < winScore) {
+        let playerMove = getPlayerMove();
+        if (playerMove === -1) {
+            alert("Invalid input, try again.");
+            continue;
+        }
+    
+        let computerMove = generateRandomMove();
+        let winner = determineWinner(playerMove, computerMove);
+    
+        let roundMessage = `${playerName}'s Move: ${convertMoveToString(playerMove)}\n`
+        roundMessage += `Computer's Move: ${convertMoveToString(computerMove)}\n`
+        roundMessage += (winner !== "Draw") ? `Winner: ${winner}` : "Draw!";
+        alert(roundMessage);
+    
+        roundNumber++;
+        playerScore += (winner === playerName) ? 1 : 0;
+        computerScore += (winner === "Computer") ? 1 : 0;
+    }
+    
+    endGame();
+    play();
 }
-
-endGame();
-
 
 
 function endGame() {
