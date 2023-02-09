@@ -21,10 +21,22 @@ while (playerScore < winScore && computerScore < winScore) {
 
 function determineWinner(player, computer) {
     // Returns as string the name of the winner
-    if (player > computer && !(player == 3 && computer == 1)) {
-        return "Player";
-    } else {
-        return "Computer";
+    let result;
+    let moves = String(player) + String(computer);
+    switch (moves) {
+        case "11":
+        case "22":
+        case "33":
+            result = "Draw";
+            break;
+        case "13":
+        case "21":
+        case "32":
+            result = "Player";
+            break;
+        default:
+            result = "Computer";
+            break;
     }
 }
 
