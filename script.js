@@ -42,6 +42,7 @@ function convertMoveToString(move) {
             stringMove = "Scissors";
             break;
     }
+    return stringMove;
 }
 
 function generateRandomMove() {
