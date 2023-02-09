@@ -4,6 +4,17 @@ let name = prompt("Welcome to RPS! Please enter your name:");
 let playerScore = 0, computerScore = 0, roundNumber = 1;
 const winScore = 3;
 while (playerScore < winScore && computerScore < winScore) {
+    let playerMove = getPlayerMove();
+    if (playerMove === -1) {
+        alert("Invalid input, try again.");
+        continue;
+    }
+
+    alert(`Player Move: ${playerMove}`)
+}
+
+
+function getPlayerMove() {
     let playerMove = prompt(`Round ${roundNumber}, please enter your move:`);
     switch (playerMove.charAt(0).toLowerCase()) {
         case '1':
@@ -22,11 +33,5 @@ while (playerScore < winScore && computerScore < winScore) {
             playerMove = -1;
             break;
     }
-
-    if (playerMove === -1) {
-        alert("Invalid input, try again.");
-        continue;
-    }
-
-    alert(`Player Move: ${playerMove}`)
+    return playerMove;
 }
