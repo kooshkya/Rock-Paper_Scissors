@@ -1,4 +1,4 @@
-// Troghout the code, rocks will be represented by the number 1, paper by the number 2, and scissors by the number 3.
+// Troughout the code, rocks will be represented by the number 1, paper by the number 2, and scissors by the number 3.
 
 let name = prompt("Welcome to RPS! Please enter your name:");
 let playerScore = 0, computerScore = 0, roundNumber = 1;
@@ -13,10 +13,10 @@ while (playerScore < winScore && computerScore < winScore) {
     let computerMove = generateRandomMove();
     let winner = determineWinner(playerMove, computerMove);
 
-    alert(
-        `Your Move: ${convertMoveToString(playerMove)}\nComputer's Move: ${convertMoveToString(computerMove)}\nWinner: ${winner}`
-        );
-
+    let roundMessage = `Your Move: ${convertMoveToString(playerMove)}\n`
+    roundMessage += `Computer's Move: ${convertMoveToString(computerMove)}\n`
+    roundMessage += (winner !== "Draw") ? `Winner: ${winner}` : "Draw!";
+    alert(roundMessage);
 }
 
 function determineWinner(player, computer) {
