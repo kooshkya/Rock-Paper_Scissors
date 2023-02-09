@@ -1,6 +1,10 @@
 // Troughout the code, rocks will be represented by the number 1, paper by the number 2, and scissors by the number 3.
 
-let name = prompt("Welcome to RPS! Please enter your name:");
+let playerName = prompt("Welcome to RPS! Please enter your name:");
+if (playerName == "Computer") {
+    playerName = "Player";
+}
+
 let playerScore = 0, computerScore = 0, roundNumber = 1;
 const winScore = 3;
 while (playerScore < winScore && computerScore < winScore) {
@@ -13,15 +17,16 @@ while (playerScore < winScore && computerScore < winScore) {
     let computerMove = generateRandomMove();
     let winner = determineWinner(playerMove, computerMove);
 
-    let roundMessage = `Your Move: ${convertMoveToString(playerMove)}\n`
+    let roundMessage = `${playerName}'s Move: ${convertMoveToString(playerMove)}\n`
     roundMessage += `Computer's Move: ${convertMoveToString(computerMove)}\n`
     roundMessage += (winner !== "Draw") ? `Winner: ${winner}` : "Draw!";
     alert(roundMessage);
 
     roundNumber++;
-    playerScore += (winner === "Player") ? 1 : 0;
+    playerScore += (winner === playerName) ? 1 : 0;
     computerScore += (winner === "Computer") ? 1 : 0;
 }
+
 
 function determineWinner(player, computer) {
     // Returns as string the name of the winner
@@ -36,7 +41,7 @@ function determineWinner(player, computer) {
         case "13":
         case "21":
         case "32":
-            result = "Player";
+            result = playerName;
             break;
         default:
             result = "Computer";
@@ -66,7 +71,7 @@ function generateRandomMove() {
 }
 
 function getPlayerMove() {
-    let promptString = `Player: ${playerScore}   =======   Computer: ${computerScore}\n`
+    let promptString = `${playerName}: ${playerScore}   =======   Computer: ${computerScore}\n`
     promptString += `Round ${roundNumber}\nplease enter your move:`;
     let playerMove = prompt(promptString);
     switch (playerMove.charAt(0).toLowerCase()) {
