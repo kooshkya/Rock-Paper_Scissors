@@ -11,13 +11,22 @@ while (playerScore < winScore && computerScore < winScore) {
     }
 
     let computerMove = generateRandomMove();
-
+    let winner = determineWinner(playerMove, computerMove);
 
     alert(
         `Your Move: ${convertMoveToString(playerMove)}\nComputer's Move: ${convertMoveToString(computerMove)}\nWinner: ${winner}`
         );
 
     alert(`Player Move: ${playerMove}`)
+}
+
+function determineWinner(player, computer) {
+    // Returns as string the name of the winner
+    if (player > computer && !(player == 3 && computer == 1)) {
+        return "Player";
+    } else {
+        return "Computer";
+    }
 }
 
 function convertMoveToString(move) {
