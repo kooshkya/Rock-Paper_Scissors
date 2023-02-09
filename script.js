@@ -17,6 +17,10 @@ while (playerScore < winScore && computerScore < winScore) {
     roundMessage += `Computer's Move: ${convertMoveToString(computerMove)}\n`
     roundMessage += (winner !== "Draw") ? `Winner: ${winner}` : "Draw!";
     alert(roundMessage);
+
+    roundNumber++;
+    playerScore += (winner === "Player") ? 1 : 0;
+    computerScore += (winner === "Computer") ? 1 : 0;
 }
 
 function determineWinner(player, computer) {
