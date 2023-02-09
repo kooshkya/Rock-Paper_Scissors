@@ -7,6 +7,7 @@ if (playerName == "Computer") {
 
 let playerScore = 0, computerScore = 0, roundNumber = 1;
 const winScore = 3;
+
 while (playerScore < winScore && computerScore < winScore) {
     let playerMove = getPlayerMove();
     if (playerMove === -1) {
@@ -25,6 +26,15 @@ while (playerScore < winScore && computerScore < winScore) {
     roundNumber++;
     playerScore += (winner === playerName) ? 1 : 0;
     computerScore += (winner === "Computer") ? 1 : 0;
+}
+
+endGame();
+
+
+
+function endGame() {
+    winner = (playerScore == winScore) ? playerName : "Computer";
+    alert(`${winner} Won! click OK to restart game!`);
 }
 
 
