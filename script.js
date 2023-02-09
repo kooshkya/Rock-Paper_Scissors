@@ -38,6 +38,7 @@ function determineWinner(player, computer) {
             result = "Computer";
             break;
     }
+    return result;
 }
 
 function convertMoveToString(move) {
