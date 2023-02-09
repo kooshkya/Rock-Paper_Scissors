@@ -66,7 +66,9 @@ function generateRandomMove() {
 }
 
 function getPlayerMove() {
-    let playerMove = prompt(`Round ${roundNumber}, please enter your move:`);
+    let promptString = `Player: ${playerScore}   =======   Computer: ${computerScore}\n`
+    promptString += `Round ${roundNumber}\nplease enter your move:`;
+    let playerMove = prompt(promptString);
     switch (playerMove.charAt(0).toLowerCase()) {
         case '1':
         case 'r':
