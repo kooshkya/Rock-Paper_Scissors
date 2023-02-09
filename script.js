@@ -10,9 +10,18 @@ while (playerScore < winScore && computerScore < winScore) {
         continue;
     }
 
+    let computerMove = generateRandomMove();
+
+
+    alert(`Your Move: ${playerMove}\nComputer's Move: ${computerMove}\nWinner: ${winner}`);
+
     alert(`Player Move: ${playerMove}`)
 }
 
+
+function generateRandomMove() {
+    return Math.floor(Math.random() * 3) + 1;
+}
 
 function getPlayerMove() {
     let playerMove = prompt(`Round ${roundNumber}, please enter your move:`);
