@@ -13,11 +13,27 @@ while (playerScore < winScore && computerScore < winScore) {
     let computerMove = generateRandomMove();
 
 
-    alert(`Your Move: ${playerMove}\nComputer's Move: ${computerMove}\nWinner: ${winner}`);
+    alert(
+        `Your Move: ${convertMoveToString(playerMove)}\nComputer's Move: ${convertMoveToString(computerMove)}\nWinner: ${winner}`
+        );
 
     alert(`Player Move: ${playerMove}`)
 }
 
+function convertMoveToString(move) {
+    let stringMove;
+    switch (move) {
+        case 1:
+            stringMove = "Rock";
+            break
+        case 2:
+            stringMove = "Paper";
+            break;
+        case 3:
+            stringMove = "Scissors";
+            break;
+    }
+}
 
 function generateRandomMove() {
     return Math.floor(Math.random() * 3) + 1;
