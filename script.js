@@ -17,7 +17,6 @@ while (playerScore < winScore && computerScore < winScore) {
         `Your Move: ${convertMoveToString(playerMove)}\nComputer's Move: ${convertMoveToString(computerMove)}\nWinner: ${winner}`
         );
 
-    alert(`Player Move: ${playerMove}`)
 }
 
 function determineWinner(player, computer) {
