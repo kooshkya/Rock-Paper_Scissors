@@ -24,7 +24,6 @@ let sidePickButtonClicked = (e) => {
     }
     isPlayerJedi = (e.target.id === "jedi-button");
     playerName = ((isPlayerJedi) ? "" : "Darth ") + nameInputField.value.trim();
-    console.log(`player name: ${playerName}`);
     maskElement.style.display = "none";
 }
 sidePickButtons.forEach((button) => button.addEventListener("click", sidePickButtonClicked));
