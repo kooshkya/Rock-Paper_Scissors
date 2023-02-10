@@ -151,6 +151,11 @@ body {
 .weapon {
     background-color: rgba(168, 168, 168, 0.6);
     margin: 10px 0;
+    border: none;
+}
+.weapon:hover {
+    transform: scale(1.1);
+    outline: rgb(255, 255, 255) solid 3px;
 }
 .weapon img {
     width: 100%;
