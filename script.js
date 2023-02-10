@@ -22,8 +22,9 @@ let sidePickButtonClicked = (e) => {
         errorBox.style.backgroundColor = (e.target.id === "dark-button") ? darkSideColor1 : jediColor1;
         return;
     }
-    playerName = nameInputField.textContent.trim();
-    isPlayerJedi = e.target.id === "jedi-button";
+    isPlayerJedi = (e.target.id === "jedi-button");
+    playerName = ((isPlayerJedi) ? "" : "Darth ") + nameInputField.value.trim();
+    console.log(`player name: ${playerName}`);
     maskElement.style.display = "none";
 }
 sidePickButtons.forEach((button) => button.addEventListener("click", sidePickButtonClicked));
