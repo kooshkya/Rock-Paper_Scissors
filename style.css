@@ -52,17 +52,24 @@
 #start-form-button-container input[type=button] {
     flex: 1 1 100%;
     padding: 10px;
-    margin: 0 5px;
+    margin: 0 15px;
     font-size: medium;
     
     background-color: white;
     border: none;
+    border-radius: 5px;
 }
 #start-form-button-container #jedi-button:hover {
     cursor: url("images/blue.png"), pointer;
     background-color: rgb(21, 0, 255);
+    color: white;
+    outline: rgba(207, 207, 255, 0.374) solid 5px;
+    transform: scale(1.1);
 }
 #start-form-button-container #dark-button:hover {
     cursor: url("images/red.png"), pointer;
     background-color: rgb(255, 0, 0);
+    color: white;
+    outline: rgba(255, 207, 207, 0.374) solid 5px;
+    transform: scale(1.1);
 }
