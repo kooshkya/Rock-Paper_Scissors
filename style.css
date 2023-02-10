@@ -21,17 +21,42 @@
     align-items: center;
     
     padding: 20px 40px;
-    min-width: 25%;
+    min-width: 35%;
     font-family: 'Poller One', cursive;
 
-    background-color: black;
+    background-color: rgb(40, 40, 40);
     color: white;
 }
 #start-form * {
     margin-top: 10px;
     margin-bottom: 10px;
+    width: 90%;
+    text-align: center;
+}
+#start-form label {
+    font-size: large;
 }
 #start-form input {
     display: block;
-    width: 100%;
+}
+
+#start-form input[type=text] {
+    outline: none;
+    border: none;
+}
+
+#start-form-button-container {
+    display: flex;
+}
+#start-form-button-container input[type=button] {
+    flex: 1 1 100%;
+    padding: 10px;
+    margin: 0 5px;
+    font-size: medium;
+    
+    background-color: white;
+    border: none;
+}
+#start-form-button-container input[type=button]:hover {
+    cursor: pointer;
 }
