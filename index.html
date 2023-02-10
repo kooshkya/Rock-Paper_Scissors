@@ -3,13 +3,17 @@
 <head>
     <title>Rock Paper Scissors</title>
     <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poller+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
     <style>
         body {font-family: "Lato", sans-serif}
         .mySlides {display: none}
@@ -17,8 +21,12 @@
 </head>
 <body>
     <div id="mask">
-        <form>
-            
+        <form id="start-form">
+            <label for="name-field">Enter your name:</label>
+            <input type="text" id="name-field">
+            <label>Pick a Side...</label>
+            <input type="button" id="dark-button" value="The Dark Side">
+            <input type="button" id="jedi-button" value="Jedi">
         </form>
     </div>
 
