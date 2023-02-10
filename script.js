@@ -23,6 +23,7 @@ let sidePickButtonClicked = (e) => {
         return;
     }
     playerName = nameInputField.textContent.trim();
+    isPlayerJedi = e.target.id === "jedi-button";
     maskElement.style.display = "none";
 }
 sidePickButtons.forEach((button) => button.addEventListener("click", sidePickButtonClicked));
