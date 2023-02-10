@@ -1,8 +1,11 @@
 // Troughout the code, rocks will be represented by the number 1, paper by the number 2, and scissors by the number 3.
 const jediColor1 = "rgb(54, 64, 255)";
 const darkSideColor1 = "rgb(255, 54, 54)";
+const sithNames = ["Darth Vader", "Darth Maul", "Lord Sidius", "Darth Tyranus"];
+const jediNames = ["Qui-Gon Jinn", "Obi-Wan Kenobi", "Anakin Skywalker", "Mace Windu", "Master Yoda"];
 
 let playerName;
+let computerName;
 let isPlayerJedi;
 let playerScore, computerScore, roundNumber;
 const winScore = 3;
@@ -25,11 +28,20 @@ let sidePickButtonClicked = (e) => {
     isPlayerJedi = (e.target.id === "jedi-button");
     document.querySelector("body").style.cursor = `url("images/${isPlayerJedi ? "blue" : "red"}.png"), pointer`;
     playerName = ((isPlayerJedi) ? "" : "Darth ") + nameInputField.value.trim();
+    computerName = (isPlayerJedi) ? generateRandomSithName() : generateRandomJediName();
     maskElement.style.display = "none";
 }
 sidePickButtons.forEach((button) => button.addEventListener("click", sidePickButtonClicked));
 
 // play();
+
+function generateRandomSithName() {
+    return sithNames[Math.floor(Math.random() * sithNames.length)];
+}
+function generateRandomJediName() {
+    return jediNames[Math.floor(Math.random() * jediNames.length)];
+}
+
 
 function play() {
     playerScore = 0, computerScore = 0;
