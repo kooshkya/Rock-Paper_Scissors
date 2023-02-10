@@ -1,12 +1,13 @@
 * {
     font: inherit;
+    cursor: inherit;
 }
 
 body {
     background-image: url("images/background.png");
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 100vh;
+    height: 100vh;
     padding: 0;
     margin: 0;
 }
@@ -111,4 +112,42 @@ body {
     color: white;
     outline: rgba(255, 207, 207, 0.374) solid 5px;
     transform: scale(1.1);
+}
+
+#arena {
+    display: flex;
+    height: 100%;
+}
+#arena > * {
+    flex-grow: 1;
+}
+
+.side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.side-header {
+    text-align: center;
+    font-size: x-large;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.627);
+    width: 40%;
+}
+#jedi-header {
+    color: blue;
+}
+#sith-header {
+    color: red;
+}
+
+.arsenal {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+.weapon img {
+    width: 100%;
 }
