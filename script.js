@@ -23,6 +23,7 @@ let sidePickButtonClicked = (e) => {
         return;
     }
     isPlayerJedi = (e.target.id === "jedi-button");
+    document.querySelector("body").style.cursor = `url("images/${isPlayerJedi ? "blue" : "red"}.png"), pointer`;
     playerName = ((isPlayerJedi) ? "" : "Darth ") + nameInputField.value.trim();
     maskElement.style.display = "none";
 }
