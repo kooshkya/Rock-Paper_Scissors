@@ -3,7 +3,7 @@
 let playerName;
 let playerScore, computerScore, roundNumber;
 const winScore = 3;
-play();
+// play();
 
 function play() {
     playerScore = 0, computerScore = 0;
