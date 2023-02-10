@@ -148,6 +148,10 @@ body {
     flex-direction: column;
     width: 30%;
 }
+.weapon {
+    background-color: rgba(168, 168, 168, 0.6);
+    margin: 10px 0;
+}
 .weapon img {
     width: 100%;
 }
