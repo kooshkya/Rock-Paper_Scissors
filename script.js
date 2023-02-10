@@ -30,8 +30,18 @@ let sidePickButtonClicked = (e) => {
     playerName = ((isPlayerJedi) ? "" : "Darth ") + nameInputField.value.trim();
     computerName = (isPlayerJedi) ? generateRandomSithName() : generateRandomJediName();
     maskElement.style.display = "none";
+
+    initiateArena();
 }
 sidePickButtons.forEach((button) => button.addEventListener("click", sidePickButtonClicked));
+
+
+function initiateArena() {
+    playerSide = document.querySelector((isPlayerJedi) ? "#jedi-side" : "#sith-side");
+    computerSide = document.querySelector((!isPlayerJedi) ? "#jedi-side" : "#sith-side");
+    playerSide.querySelector(".side-header").textContent = playerName;
+    computerSide.querySelector(".side-header").textContent = computerName;
+}
 
 // play();
 
