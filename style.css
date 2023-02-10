@@ -57,6 +57,11 @@
     background-color: white;
     border: none;
 }
-#start-form-button-container input[type=button]:hover {
-    cursor: pointer;
+#start-form-button-container #jedi-button:hover {
+    cursor: url("images/blue.png"), pointer;
+    background-color: rgb(21, 0, 255);
+}
+#start-form-button-container #dark-button:hover {
+    cursor: url("images/red.png"), pointer;
+    background-color: rgb(255, 0, 0);
 }
