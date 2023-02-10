@@ -1,8 +1,25 @@
 // Troughout the code, rocks will be represented by the number 1, paper by the number 2, and scissors by the number 3.
 
 let playerName;
+let isPlayerJedi;
 let playerScore, computerScore, roundNumber;
 const winScore = 3;
+
+let nameInputField = document.querySelector("#name-field");
+let maskElement = document.querySelector("#mask");
+let sidePickButtons = document.querySelectorAll("#start-form-button-container > input");
+let sidePickButtonClicked = (e) => {
+    if (e.target.id !== "dark-button" && e.target.id !== "jedi-button") {
+        return;
+    }
+    if (nameInputField.value.trim() === "") {
+        return;
+    }
+    playerName = nameInputField.textContent.trim();
+    maskElement.style.display = "none";
+}
+sidePickButtons.forEach((button) => button.addEventListener("click", sidePickButtonClicked));
+
 // play();
 
 function play() {
