@@ -41,6 +41,8 @@ function initiateArena() {
     computerSide = document.querySelector((!isPlayerJedi) ? "#jedi-side" : "#sith-side");
     playerSide.querySelector(".side-header").textContent = playerName;
     computerSide.querySelector(".side-header").textContent = computerName;
+    let arena = document.querySelector("#arena");
+    arena.style.flexDirection = (isPlayerJedi) ? "row" : "row-reverse";
 }
 
 // play();
