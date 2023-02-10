@@ -15,6 +15,32 @@
     background-color: rgba(81, 81, 81, 0.85);
 }
 
+#error-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    padding: 0 20px;
+    font-family: 'Poller One', cursive;
+    font-size: large;
+    
+    display: none;
+    align-items: center;
+}
+#error-box div {
+    flex-grow: 1;
+    align-self: stretch;
+}
+#error-box #error-box-close-button {
+    font-size: larger;
+    padding: 5px;
+}
+#error-box #error-box-close-button:hover {
+    cursor: pointer;
+}
+
+
 #start-form {
     display: flex;
     flex-direction: column;

@@ -1,4 +1,6 @@
 // Troughout the code, rocks will be represented by the number 1, paper by the number 2, and scissors by the number 3.
+const jediColor1 = "rgb(54, 64, 255)";
+const darkSideColor1 = "rgb(255, 54, 54)";
 
 let playerName;
 let isPlayerJedi;
@@ -7,12 +9,17 @@ const winScore = 3;
 
 let nameInputField = document.querySelector("#name-field");
 let maskElement = document.querySelector("#mask");
+let errorBox = document.querySelector("#error-box");
+errorBox.querySelectorAll(".error-box-closer").forEach((node) => node.addEventListener("click", () => {errorBox.style.display = "none";}));
 let sidePickButtons = document.querySelectorAll("#start-form-button-container > input");
 let sidePickButtonClicked = (e) => {
     if (e.target.id !== "dark-button" && e.target.id !== "jedi-button") {
         return;
     }
     if (nameInputField.value.trim() === "") {
+        errorBox.style.display = "flex";
+        errorBox.querySelector("p#error-box-message").textContent = "You need a name to play!";
+        errorBox.style.backgroundColor = (e.target.id === "dark-button") ? darkSideColor1 : jediColor1;
         return;
     }
     playerName = nameInputField.textContent.trim();
