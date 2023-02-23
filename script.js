@@ -34,7 +34,8 @@ let sidePickButtonClicked = (e) => {
     initiateArena();
 }
 sidePickButtons.forEach((button) => button.addEventListener("click", sidePickButtonClicked));
-
+promptBox = document.querySelector("#prompt-box");
+promptBox.textContent = "Pick Your Weapon!";
 
 function initiateArena() {
     playerSide = document.querySelector((isPlayerJedi) ? "#jedi-side" : "#sith-side");
@@ -43,6 +44,7 @@ function initiateArena() {
     computerSide.querySelector(".side-header").textContent = computerName;
     let arena = document.querySelector("#arena");
     arena.style.flexDirection = (isPlayerJedi) ? "row" : "row-reverse";
+    
 }
 
 // play();
