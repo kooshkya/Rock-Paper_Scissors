@@ -153,10 +153,16 @@ body {
     margin: 10px 0;
     border: none;
 }
-.weapon:hover {
+.weapon.active:hover {
     transform: scale(1.1);
-    outline: rgb(255, 255, 255) solid 3px;
 }
+#sith-side .weapon.active:hover {
+    outline: rgb(255, 0, 0) solid 3px;
+}
+#jedi-side .weapon.active:hover {
+    outline: rgb(0, 0, 255) solid 3px;
+}
+
 .weapon img {
     width: 100%;
 }

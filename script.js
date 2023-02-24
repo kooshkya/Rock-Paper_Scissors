@@ -61,6 +61,11 @@ function initiateArena() {
     computerSaber = computerSide.querySelector(".saber-weapon")
     computerHand = computerSide.querySelector(".hand-weapon")
     computerBlaster = computerSide.querySelector(".blaster-weapon")
+    let computerWeapons = [computerSaber, computerHand, computerBlaster]
+    computerWeapons.forEach((weapon) => {
+        weapon.classList.remove("active");
+        weapon.disabled = true;
+    });
     playerSaber.addEventListener("click", playSaber)
     playerHand.addEventListener("click", playHand)
     playerBlaster.addEventListener("click", playBlaster)    
