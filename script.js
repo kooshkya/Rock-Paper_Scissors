@@ -67,15 +67,15 @@ function initiateArena() {
 }
 
 function playSaber() {
-    console.log("Saber!")
+    executeRound(1);
 }
 
 function playHand() {
-    console.log("Hand!")
+    executeRound(2);
 }
 
 function playBlaster() {
-    console.log("Blaster!")
+    executeRound(3);
 }
 
 
@@ -88,6 +88,23 @@ function generateRandomJediName() {
     return jediNames[Math.floor(Math.random() * jediNames.length)];
 }
 
+function executeRound(playerMove) {
+    disablePlayerButtons();
+    let computerMove = generateRandomMove();
+    console.log(convertMoveToString(computerMove));
+    let winner = determineWinner(playerMove, computerMove);
+
+    promptBox.textContent = winner + " Wins the round!";
+    roundNumber++;
+    playerScore += (winner === playerName) ? 1 : 0;
+    computerScore += (winner === "Computer") ? 1 : 0;
+    
+    // TODO: check scores and end the game if appropriate
+}
+
+function disablePlayerButtons() {
+    // TODO
+}
 
 function play() {
     playerScore = 0, computerScore = 0;
@@ -139,7 +156,7 @@ function determineWinner(player, computer) {
             result = playerName;
             break;
         default:
-            result = "Computer";
+            result = computerName;
             break;
     }
     return result;
@@ -149,13 +166,13 @@ function convertMoveToString(move) {
     let stringMove;
     switch (move) {
         case 1:
-            stringMove = "Rock";
+            stringMove = "Saber";
             break
         case 2:
-            stringMove = "Paper";
+            stringMove = "The Force";
             break;
         case 3:
-            stringMove = "Scissors";
+            stringMove = "Blaster";
             break;
     }
     return stringMove;
