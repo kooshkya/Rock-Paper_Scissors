@@ -99,7 +99,11 @@ function executeRound(playerMove) {
     console.log(convertMoveToString(computerMove));
     let winner = determineWinner(playerMove, computerMove);
 
-    promptBox.textContent = winner + " Wins the round!";
+    if (winner !== "Draw") {
+        promptBox.textContent = winner + " Wins the round!";
+    } else {
+        promptBox.textContent = "Draw!";
+    } 
     roundNumber++;
     playerScore += (winner === playerName) ? 1 : 0;
     computerScore += (winner === "Computer") ? 1 : 0;
