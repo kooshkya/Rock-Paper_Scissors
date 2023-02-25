@@ -156,10 +156,10 @@ body {
 .weapon.active:hover {
     transform: scale(1.1);
 }
-#sith-side .weapon.active:hover {
+#sith-side .weapon.active:hover, #sith-side .weapon.selected {
     outline: rgb(255, 0, 0) solid 3px;
 }
-#jedi-side .weapon.active:hover {
+#jedi-side .weapon.active:hover, #jedi-side .weapon.selected {
     outline: rgb(0, 0, 255) solid 3px;
 }
 

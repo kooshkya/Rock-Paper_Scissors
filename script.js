@@ -9,6 +9,8 @@ let computerName;
 let isPlayerJedi;
 let playerScore, computerScore, roundNumber;
 let playerSide, computerSide;
+const playerWeapons = [];
+const computerWeapons = [];
 const winScore = 3;
 
 
@@ -58,10 +60,11 @@ function initiateArena() {
     playerSaber = playerSide.querySelector(".saber-weapon")
     playerHand = playerSide.querySelector(".hand-weapon")
     playerBlaster = playerSide.querySelector(".blaster-weapon")
+    playerWeapons.push(playerSaber, playerHand, playerBlaster); 
     computerSaber = computerSide.querySelector(".saber-weapon")
     computerHand = computerSide.querySelector(".hand-weapon")
     computerBlaster = computerSide.querySelector(".blaster-weapon")
-    let computerWeapons = [computerSaber, computerHand, computerBlaster]
+    computerWeapons.push(computerSaber, computerHand, computerBlaster)
     computerWeapons.forEach((weapon) => {
         weapon.classList.remove("active");
         weapon.disabled = true;
@@ -95,8 +98,9 @@ function generateRandomJediName() {
 
 function executeRound(playerMove) {
     disablePlayerButtons();
+    playerWeapons[playerMove - 1].classList.add("selected");
     let computerMove = generateRandomMove();
-    console.log(convertMoveToString(computerMove));
+    computerWeapons[computerMove - 1].classList.add("selected");
     let winner = determineWinner(playerMove, computerMove);
 
     if (winner !== "Draw") {
