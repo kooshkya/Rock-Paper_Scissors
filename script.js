@@ -116,7 +116,10 @@ function executeRound(playerMove) {
 }
 
 function disablePlayerButtons() {
-    // TODO
+    playerWeapons.forEach((w) => {
+        w.disabled = true;
+        w.classList.remove("active");
+    });
 }
 
 function play() {
