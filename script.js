@@ -12,6 +12,7 @@ let playerSide, computerSide;
 const playerWeapons = [];
 const computerWeapons = [];
 const winScore = 3;
+const roundDelay = 2000;
 
 
 initiateGlobalComponents();
@@ -113,6 +114,20 @@ function executeRound(playerMove) {
     computerScore += (winner === "Computer") ? 1 : 0;
     
     // TODO: check scores and end the game if appropriate
+
+    
+    setTimeout(() => {
+        playerWeapons[playerMove - 1].classList.remove("selected");
+	    computerWeapons[computerMove - 1].classList.remove("selected");
+	    enablePlayerButtons();
+    }, roundDelay);
+}
+
+function enablePlayerButtons() {
+    playerWeapons.forEach((w) => {
+        w.disabled = false;
+        w.classList.add("active");
+    });
 }
 
 function disablePlayerButtons() {
