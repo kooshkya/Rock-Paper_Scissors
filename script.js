@@ -46,6 +46,7 @@ function initiateEntryMenu() {
 	    maskElement.style.display = "none";
 	
 	    initiateArena();
+        startGame();
     }
     sidePickButtons.forEach((button) => button.addEventListener("click", sidePickButtonClicked));
 }
@@ -55,11 +56,8 @@ function initiateArena() {
     computerSide = document.querySelector((!isPlayerJedi) ? "#jedi-side" : "#sith-side");
     playerSide.querySelector(".side-header").textContent = playerName;
     computerSide.querySelector(".side-header").textContent = computerName;
-    playerScore = 0;
-    computerScore = 0;
     playerScoreboard = document.querySelector((isPlayerJedi) ? "#jedi-score" : "#sith-score");
     computerScoreboard = document.querySelector((!isPlayerJedi) ? "#jedi-score" : "#sith-score");
-    updateScoreboard();
     let arena = document.querySelector("#arena");
     arena.style.flexDirection = (isPlayerJedi) ? "row" : "row-reverse";
     promptBox = document.querySelector("#prompt-box");
@@ -79,6 +77,18 @@ function initiateArena() {
     playerSaber.addEventListener("click", playSaber)
     playerHand.addEventListener("click", playHand)
     playerBlaster.addEventListener("click", playBlaster)    
+}
+
+function startGame() {
+    playerScore = 0;
+    computerScore = 0;
+    updateScoreboard();
+    promptBox.textContent = "Pick Your Weapon!";
+    enablePlayerButtons();
+}
+
+function pauseGame() {
+    disablePlayerButtons();
 }
 
 function playSaber() {
