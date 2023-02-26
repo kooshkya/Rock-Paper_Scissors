@@ -130,7 +130,7 @@ function executeRound(playerMove) {
     } 
     roundNumber++;
     playerScore += (winner === playerName) ? 1 : 0;
-    computerScore += (winner === "Computer") ? 1 : 0;
+    computerScore += (winner === computerName) ? 1 : 0;
     updateScoreboard();
     
     // TODO: check scores and end the game if appropriate
