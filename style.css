@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
 * {
     font: inherit;
     cursor: inherit;
@@ -140,6 +143,21 @@ body {
     color: blue;
 }
 #sith-header {
+    color: red;
+}
+
+.scoreboard {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+    background-color: rgba(0, 0, 0, 0.627);
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+}
+#jedi-score {
+    color: blue;
+}
+#sith-score {
     color: red;
 }
 

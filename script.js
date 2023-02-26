@@ -9,6 +9,7 @@ let computerName;
 let isPlayerJedi;
 let playerScore, computerScore, roundNumber;
 let playerSide, computerSide;
+let playerScoreboard, computerScoreboard;
 const playerWeapons = [];
 const computerWeapons = [];
 const winScore = 3;
@@ -54,6 +55,11 @@ function initiateArena() {
     computerSide = document.querySelector((!isPlayerJedi) ? "#jedi-side" : "#sith-side");
     playerSide.querySelector(".side-header").textContent = playerName;
     computerSide.querySelector(".side-header").textContent = computerName;
+    playerScore = 0;
+    computerScore = 0;
+    playerScoreboard = document.querySelector((isPlayerJedi) ? "#jedi-score" : "#sith-score");
+    computerScoreboard = document.querySelector((!isPlayerJedi) ? "#jedi-score" : "#sith-score");
+    updateScoreboard();
     let arena = document.querySelector("#arena");
     arena.style.flexDirection = (isPlayerJedi) ? "row" : "row-reverse";
     promptBox = document.querySelector("#prompt-box");
@@ -88,7 +94,10 @@ function playBlaster() {
 }
 
 
-// play();
+function updateScoreboard() {
+    playerScoreboard.textContent = playerScore;
+    computerScoreboard.textContent = computerScore;
+}
 
 function generateRandomSithName() {
     return sithNames[Math.floor(Math.random() * sithNames.length)];
