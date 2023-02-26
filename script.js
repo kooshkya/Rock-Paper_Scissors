@@ -134,13 +134,16 @@ function executeRound(playerMove) {
     updateScoreboard();
     
     // TODO: check scores and end the game if appropriate
-
-    
-    setTimeout(() => {
-        playerWeapons[playerMove - 1].classList.remove("selected");
-	    computerWeapons[computerMove - 1].classList.remove("selected");
-	    enablePlayerButtons();
-    }, roundDelay);
+    if (playerScore === winScore || computerScore === winScore) { 
+        promptBox.textContent = winner + " Wins the Game!"; 
+        pauseGame();
+    } else {
+        setTimeout(() => {
+	        playerWeapons[playerMove - 1].classList.remove("selected");
+		    computerWeapons[computerMove - 1].classList.remove("selected");
+		    enablePlayerButtons();
+	    }, roundDelay);
+    }
 }
 
 function enablePlayerButtons() {
