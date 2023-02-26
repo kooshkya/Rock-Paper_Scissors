@@ -10,6 +10,7 @@ let isPlayerJedi;
 let playerScore, computerScore, roundNumber;
 let playerSide, computerSide;
 let playerScoreboard, computerScoreboard;
+let restartButton;
 const playerWeapons = [];
 const computerWeapons = [];
 const winScore = 3;
@@ -62,6 +63,10 @@ function initiateArena() {
     arena.style.flexDirection = (isPlayerJedi) ? "row" : "row-reverse";
     promptBox = document.querySelector("#prompt-box");
     promptBox.textContent = "Pick Your Weapon!";
+    restartButton = document.querySelector("#restart-button");
+    restartButton.addEventListener("click", () => {
+        startGame();
+    });
     playerSaber = playerSide.querySelector(".saber-weapon")
     playerHand = playerSide.querySelector(".hand-weapon")
     playerBlaster = playerSide.querySelector(".blaster-weapon")
@@ -80,14 +85,22 @@ function initiateArena() {
 }
 
 function startGame() {
+    playerWeapons.forEach((button) => {
+        button.classList.remove("selected");
+    });
+    computerWeapons.forEach((button) => {
+        button.classList.remove("selected");
+    });
     playerScore = 0;
     computerScore = 0;
     updateScoreboard();
-    promptBox.textContent = "Pick Your Weapon!";
+    promptBox.textContent = "Pick Your Weapon!"; 
+    restartButton.style.display = "none";
     enablePlayerButtons();
 }
 
 function pauseGame() {
+    restartButton.style.display = "block";
     disablePlayerButtons();
 }
 
@@ -133,7 +146,6 @@ function executeRound(playerMove) {
     computerScore += (winner === computerName) ? 1 : 0;
     updateScoreboard();
     
-    // TODO: check scores and end the game if appropriate
     if (playerScore === winScore || computerScore === winScore) { 
         promptBox.textContent = winner + " Wins the Game!"; 
         pauseGame();
